@@ -47,6 +47,10 @@ void setup() {
   value   = EEPROM.read(VALUE);
   enabled = EEPROM.read(ENABLED);
 
+  // turn off unnecessary lights
+  pinMode(LED_BUILTIN_TX,INPUT);
+  pinMode(LED_BUILTIN_RX,INPUT);
+
   updateLEDs();
 }
 
