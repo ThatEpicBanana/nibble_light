@@ -35,12 +35,14 @@ int a_last = 0;
 void setup() {
   FastLED.addLeds<WS2812B, LED, GRB>(leds, NUM_LEDS);
 
+  // remember 1 is off, 0 is on
   pinMode(ENC_BUTTON, INPUT_PULLUP);
   pinMode(ENC_A, INPUT_PULLUP);
   pinMode(ENC_B, INPUT_PULLUP);
 
   // Serial.begin(9600);
 
+  // persistent data
   hue     = EEPROM.read(HUE);
   value   = EEPROM.read(VALUE);
   enabled = EEPROM.read(ENABLED);
@@ -52,7 +54,7 @@ void loop() {
   int enc_a = digitalRead(ENC_A);
   int button = digitalRead(ENC_BUTTON);
 
-  if(button == 0 && button_last == 1)
+  if(button == 0 && button_last != 0)
     press();
 
   // only keep values if they're new
@@ -88,6 +90,7 @@ void rotate(int dir) {
 }
 
 void press() {
+  // update state
   state += 1;
 
   if(state > ENABLED) // out of bounds
@@ -111,6 +114,7 @@ void press() {
       break;
   }
 
+  // go back to original
   updateLEDs();
 }
 
