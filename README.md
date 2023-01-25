@@ -2,7 +2,7 @@
 
 aka the most expensive rgb light possible
 
-I unfortunately absolutely destroyed my nibble while desoldering some stuff trying to fix a bug. The LED side of things worked fine, but the ICs were irreparable. I learnt my lesson and got a replacement board, but I didn't want the old one to go to waste. So, I decided to make it into an rgb light sorta thing.
+I unfortunately absolutely destroyed my nibble while desoldering some stuff trying to fix a bug. The LED side of things worked fine, but the IC/keyboard side was irreparable. I learnt my lesson and got a replacement board, but I didn't want the old one to go to waste. So, I decided to make it into an rgb light sorta thing.
 
 ![example image](/image.jpg)
 
