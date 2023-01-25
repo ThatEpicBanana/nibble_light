@@ -8,4 +8,4 @@ I unfortunately absolutely destroyed my nibble while desoldering some stuff tryi
 
 It uses the Rotary Encoder to drive the rgb leds in the back. I also recommend keeping the acryllic cover on since the lights are fairly spaced out.
 
-If you somehow find yourself in a similar situation, connect one lead of the rotary encoder's button to ground and the other to digital pin 6. Once that is done, it should be able to be controlled by it. Additionally if you used a bit-c, you might want to flash the Caterina bootloader for easier programming, but I don't know how to.
+If you somehow find yourself in a similar situation, connect one lead of the rotary encoder's button to ground and the other to digital pin 6. Once that is done, it should be able to be controlled by it. Additionally if you used a bit-c, you might want to flash the Caterina bootloader for easier programming.
