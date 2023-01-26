@@ -88,6 +88,36 @@ void loop() {
   delay(1); // slight delay required for debouncing
 }
 
+// value changes
+void changeHue(int amt) {
+  hue += amt; updateHue();
+  updateLEDs();
+}
+
+void changeValue(int amt) {
+  value = max(0, min(255, value + amt)); updateValue();
+  updateLEDs();
+}
+
+void toggleEnabled() {
+  enabled = !enabled; updateEnabled();
+  updateLEDs();
+}
+
+// led stuff
+void updateLEDs() {
+  setLEDs(hue, enabled ? value : 0);
+}
+
+void setLEDs(int hue, int value) {
+  for(int i = 0; i < NUM_LEDS; i++) {
+    leds[i] = CHSV(hue, 255, value);
+  }
+
+  FastLED.show(); 
+}
+
+// serial
 void handleStr(String str) {
   // get command
   if(str.length() < 1) return;
@@ -125,7 +155,7 @@ int getDirection(char chr) {
   }
 }
 
-// encoder rotation
+// encoder
 void rotate(int dir) {
   switch (state) {
     case HUE:
@@ -140,23 +170,6 @@ void rotate(int dir) {
   }
 }
 
-// value changes
-void changeHue(int amt) {
-  hue += amt; updateHue();
-  updateLEDs();
-}
-
-void changeValue(int amt) {
-  value = max(0, min(255, value + amt)); updateValue();
-  updateLEDs();
-}
-
-void toggleEnabled() {
-  enabled = !enabled; updateEnabled();
-  updateLEDs();
-}
-
-// encoder press
 void press() {
   // update state
   state += 1;
@@ -184,16 +197,4 @@ void press() {
 
   // go back to original
   updateLEDs();
-}
-
-void updateLEDs() {
-  setLEDs(hue, enabled ? value : 0);
-}
-
-void setLEDs(int hue, int value) {
-  for(int i = 0; i < NUM_LEDS; i++) {
-    leds[i] = CHSV(hue, 255, value);
-  }
-
-  FastLED.show(); 
 }
