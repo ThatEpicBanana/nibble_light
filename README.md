@@ -18,4 +18,4 @@ If you want to control it from your computer, you'll want to hook it up to a ser
 - v+/- - change value
 - h+/- - change hue
 
-I've set up an autohotkey script to do this automatically for F20-F24 on serial port COM9
+Make sure that whatever you're using to send the commands ends with a newline. I've set up an autohotkey script to do this automatically for F20-F24 on serial port COM9
