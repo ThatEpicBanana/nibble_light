@@ -11,7 +11,7 @@
 
 #define ENCODER_HUE_CHANGE 8
 #define ENCODER_VALUE_CHANGE 8
-#define SERIAL_HUE_CHANGE 16
+#define SERIAL_HUE_CHANGE 8
 #define SERIAL_VALUE_CHANGE 16
 
 // eeprom locations / state
